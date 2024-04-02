@@ -1,0 +1,9 @@
+<template>
+    <div>
+      <navbar/>
+      <herosection/>
+      <tempchannelsection/>
+      <textutilitysection/>
+      <fusszeile/>
+    </div>
+  </template>

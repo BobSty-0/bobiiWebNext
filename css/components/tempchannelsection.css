@@ -1,0 +1,150 @@
+.temp-channel-section {
+  height: 90vh;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  background-image: url("../../resources/Second_Transparent.png");
+  background-size: 110% 100%;
+  }
+  
+  .temp-channel-section .content {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    color: #fff;
+    display: table;
+    float: right;
+  }
+
+  .preview-picture-tempchannel {
+    padding-top: 0px;
+    width: 500px;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #fff;
+    float: left;
+  }
+
+  .preview-picture-tempchannel img {
+    border-radius: 15px;
+    border: 2px solid gray;
+  }
+  
+  .temp-channel-section .text {
+    text-align: right;
+    margin-left: auto; 
+    margin-right: 0;
+    padding-top: 70px;
+  }
+
+  .temp-channel-section .content h2 {
+    font-size: 3rem;
+    max-width: 600px;
+    margin-right: 0;
+    margin-left: auto;
+    line-height: 70px;
+  }
+  
+  .temp-channel-section .content p {
+    font-weight: 300;
+    max-width: 600px;
+    margin-top: 15px;
+    margin-right: 0;
+    margin-left: auto;
+  }
+  
+  .temp-channel-section .content button {
+    background: #fff;
+    padding: 12px 30px;
+    border: none;
+    font-size: 1rem;
+    border-radius: 6px;
+    margin-top: 38px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s ease;
+  }
+  
+  .temp-channel-section .content button:hover {
+    color: #fff;
+    background: #4aabbd;
+  }
+
+@media (max-width: 720px) {
+  .preview-picture-tempchannel img {
+    width: 80%;
+  }
+
+  .tempChannelSlideShow {
+    width:80%;
+    margin: none;
+  }
+
+  .temp-channel-section {
+    margin-bottom: -300px;
+  }
+}
+
+@media (max-width: 1160px) {
+  #flex { display: flex; flex-direction: column; }
+  #picture { order: 2; }
+  #text { order: 1; }
+
+  .tempChannelSlideShow {
+    display: block;
+    margin: auto;
+  }
+
+  .preview-picture {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .preview-picture-tempchannel {
+    float: none;
+    margin: 0;
+    max-width: none;
+    width: 100%;
+  }
+  .temp-channel-section .content {
+    text-align: center;
+  }
+
+  .temp-channel-section {
+    height: 150vh;
+    background-size: 130% 100%;
+  }
+
+  .temp-channel-section .text {
+    padding-bottom: 50px;
+    padding-top: 0px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .temp-channel-section .content {
+    text-align: center;
+  }
+
+  .temp-channel-section .content :is(h2, p) {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .temp-channel-section .content h2 {
+    font-size: 2.3rem;
+    line-height: 60px;
+  }
+  
+  .temp-channel-section .content button {
+    padding: 9px 18px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

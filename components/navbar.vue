@@ -12,7 +12,7 @@
         <li><a href="/">Home</a></li>
         <li><a href="#">Dashboard</a></li>
         <li><a href="#">Documentation</a></li>
-        <li><a href="/premium">Premium</a></li>
+        <li><a href="premiumselect">Premium</a></li>
         <li id="loginContainer"><a :href="discordAuth2Link">Login</a></li>
         <li id="avatarContainer"><img id="avatar" style="display: hidden"></li>
       </ul>
