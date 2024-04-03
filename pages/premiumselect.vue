@@ -6,7 +6,12 @@
 </template>
 
 <script>
+import premiums from '/components/pages/premiumselect/premiums.vue'
+
 export default {
+  components: {
+    premiums
+  },
   data() {
     return {
       caption: 'Free yourself from annoying ads',

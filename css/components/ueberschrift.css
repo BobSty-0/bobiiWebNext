@@ -14,3 +14,9 @@
 .ueberschrift p {
     margin-top: 10px;
 }
+
+@media (max-width: 760px) {
+    .ueberschrift {
+        margin-bottom: 30px;
+    }
+}
