@@ -1,5 +1,5 @@
 <style lang="css" scoped>
-@import "/css/components/pages/serverselect/server/server.css";
+@import "/css/components/pages/dashboard/server.css";
 </style>
 
 <template>
@@ -9,14 +9,20 @@
         </div>
         <h2>{{ serverName }}</h2>
         <p>{{ owner }}</p>
-        <button>{{ buttonText }}</button>
+        <NuxtLink :to="link" ><button>{{ buttonText }}</button></NuxtLink>
     </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      link: "/dashboard/" + this.serverId
+    }
+  },
   props: {
     serverName: String,
+    serverId: String,
     imgUrl: String,
     owner: String,
     buttonText: String

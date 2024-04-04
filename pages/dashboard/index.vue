@@ -8,7 +8,7 @@
  </template>
 
 <script>
-import servers from '/components/pages/serverselect/servers.vue'
+import servers from '/components/pages/dashboard/servers.vue'
 
 export default {
   data() {

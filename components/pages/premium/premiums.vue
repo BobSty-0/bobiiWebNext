@@ -1,5 +1,5 @@
 <style lang="css" scoped>
-@import "/css/components/pages/premiumselect/premiums.css";
+@import "/css/components/pages/premium/premiums.css";
 </style>
 
 <template>
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import premium from '/components/pages/premiumselect/premium/premium.vue'
+import premium from '/components/pages/premium/premium.vue'
 export default {
     components: {
         premium

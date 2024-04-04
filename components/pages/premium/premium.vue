@@ -1,5 +1,5 @@
 <style lang="css" scoped>
-@import "/css/components/pages/premiumselect/premium/premium.css";
+@import "/css/components/pages/premium/premium.css";
 </style>
 
 <template>

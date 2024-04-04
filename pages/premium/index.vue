@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import premiums from '/components/pages/premiumselect/premiums.vue'
+import premiums from '/components/pages/premium/premiums.vue'
 
 export default {
   components: {

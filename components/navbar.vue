@@ -6,13 +6,13 @@
 <template>
   <header>
     <nav class="navbar">
-      <a class="logo" href="#">Bobii</a>
+      <a class="logo" href="/">Bobii</a>
       <ul class="menu-links">
         <span id="close-menu-btn" class="material-symbols-outlined" @click="closeMobileMenu">close</span>
-        <li><a href="/">Home</a></li>
-        <li><a href="#">Dashboard</a></li>
+        <li><NuxtLink to="/">Home</NuxtLink></li>
+        <li><NuxtLink to="/dashboard">Dashboard</NuxtLink></li>
         <li><a href="#">Documentation</a></li>
-        <li><a href="premiumselect">Premium</a></li>
+        <li><NuxtLink to="/premium">Premium</NuxtLink></li>
         <li id="loginContainer"><a :href="discordAuth2Link">Login</a></li>
         <li id="avatarContainer"><img id="avatar" style="display: hidden"></li>
       </ul>
@@ -26,22 +26,18 @@ import { discordAuth2Link } from '~/globals';
 
 export default {
   methods: {
+    async loginWithDiscord() {
+      await this.$auth.loginWith('discord');
+    },
     toggleMobileMenu() {
-      // Referenz auf das header-Element
       const header = this.$refs.header;
       const hamburgerBtn = this.$refs.hamburgerBtn;
-      // Toggle mobile menu on hamburger button click
       header.classList.toggle("show-mobile-menu");
     },
     closeMobileMenu() {
-      // Referenz auf das header-Element
       const header = this.$refs.header;
-      // Referenz auf das hamburgerBtn-Element
       const hamburgerBtn = this.$refs.hamburgerBtn;
-      // Referenz auf das closeMenuBtn-Element
       const closeMenuBtn = this.$refs.closeMenuBtn;
-
-      // Close mobile menu on close button click
       hamburgerBtn.click();
     }
   },
