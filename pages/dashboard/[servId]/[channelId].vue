@@ -1,21 +1,20 @@
 <template>
     <navbar/>
-    <p>sevrerId: {{ serverId }}</p>
-    <p>channelId: {{ channelId }}</p>
+    <channeledit channelName="Channel1" :channelId="channelId" :serverId="serverId" />
     <fusszeile/>
 </template>
 
-<script setup>
-const route = useRoute()
-</script>
-
 <script>
+import channeledit from '/components/pages/dashboard/channeledit.vue'
 export default {
     data() {
         return {
             serverId: this.$route.params.servId,
             channelId: this.$route.params.channelId
         }
+    },
+    components: {
+        channeledit,
     }
 }
 </script>

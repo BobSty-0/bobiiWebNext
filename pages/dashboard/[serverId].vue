@@ -1,19 +1,21 @@
 <template>
     <navbar/>
-    <p>Test: {{ serverId }}</p>
+    <ueberschrift ueberschrift="Creator Channels"/>
+    <channels :serverId="serverId"/>
     <fusszeile/>
 </template>
 
-<script setup>
-const route = useRoute()
-</script>
-
 <script>
+import channels from '/components/pages/dashboard/channels.vue'
+
 export default {
     data() {
         return {
             serverId: this.$route.params.serverId
         }
+    },
+    components: {
+        channels,
     }
 }
 </script>

@@ -12,8 +12,8 @@
             <p>{{ priceSubtitle }}</p>
         </div>
         <div class="benefits">
-            <p>{{ benefit1 }}</p>
-            <p>{{ benefit2 }}</p>
+            <p><img src="/resources/checkmark.png"/>{{ benefit1 }}</p>
+            <p><img src="/resources/checkmark.png"/>{{ benefit2 }}</p>
         </div>
 
         <a :href="buttonLink">

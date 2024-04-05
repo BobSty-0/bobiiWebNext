@@ -1,0 +1,33 @@
+.textbox-container {
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.textbox-container h2{
+    margin-top:10px;
+    font-size: 1.2rem;
+    color: white;
+}
+.textbox {
+    margin-top: 5px;
+    min-width: 375px;
+    min-height:40px;
+    font-size: 1rem;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: transparent;
+    color: #fff;
+    padding-left: 10px;
+    outline: none;
+}
+
+.textbox:focus {
+    border: 3px solid white;
+  }
+
+  @media (max-width: 768px) {
+    .textbox {
+        min-width: 350px;
+      }
+}
+
+  

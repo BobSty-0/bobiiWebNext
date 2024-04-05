@@ -12,9 +12,9 @@
     width: 250px;
     max-width: 250px;
     min-width: 250px;
-    height: 250px;
-    max-height: 250px;
-    min-height:250px;
+    height: 260px;
+    max-height: 260px;
+    min-height:260px;
     border-radius: 15px;
     border: 2px solid white;
     text-align: center;
@@ -23,10 +23,11 @@
 }
 
 .auswahl-element button{
+    text-align:left;
     display: block;
     margin: auto;
     background: #fff;
-    padding: 5px 20px;
+    padding: 10px 30px;
     border: none;
     font-size: 1rem;
     border-radius: 6px;
@@ -47,12 +48,12 @@
 
 .auswahl-element h2 {
     color: white;
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 .auswahl-element p {
     color: white;
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 .auswahl-element .server-bild {

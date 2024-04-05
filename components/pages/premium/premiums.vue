@@ -40,13 +40,13 @@ export default {
             priceSubtitleYearly: 'EUR / month, 11,88€ billed every year',
             priceSubtitleMonthly: 'EUR / month, 1.29€ billed every month',
 
-            benefit1Lifetime: '✔️ No more Adds',
-            benefit1Yearly: '✔️ No more Adds',
-            benefit1Monthly: '✔️ No more Adds',
+            benefit1Lifetime: ' No more Adds',
+            benefit1Yearly: ' No more Adds',
+            benefit1Monthly: ' No more Adds',
 
-            benefit2Lifetime: '✔️ 1 Server',
-            benefit2Yearly: '✔️ 1 Server',
-            benefit2Monthly: '✔️ 1 Server',
+            benefit2Lifetime: ' 1 Server',
+            benefit2Yearly: ' 1 Server',
+            benefit2Monthly: ' 1 Server',
 
             buttonLinkLifetime: '#',
             buttonLinkYearly: '#',
