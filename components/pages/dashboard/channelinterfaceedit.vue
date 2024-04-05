@@ -6,5 +6,15 @@
     <div class="interface-edit">
         <textbox beschreibung="Interface Caption" name="tempchannelname" maxlengh="50" required="false" />
         <textboxlarge beschreibung="Interface Content" name="tempchannelname" maxlengh="400" required="false"/>
+        <buttons/>
     </div>
 </template>
+
+<script>
+import buttons from '/components/pages/dashboard/buttons.vue';
+
+export default {
+    components: {
+        buttons
+    }
+}</script>

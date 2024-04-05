@@ -55,7 +55,7 @@
 
 @media (max-width: 768px) {
     .slider {
-        min-width: 254px;
-        max-width: 254px;
+        min-width: 65%;
+        max-width: 65%;
       }
 }

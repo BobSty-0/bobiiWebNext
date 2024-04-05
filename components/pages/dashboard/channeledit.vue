@@ -5,8 +5,8 @@
 <template>
     <ueberschrift :ueberschrift="channelName" :untertitel="serverId"/>
     <div class="edit-elements">
-        <channelproperiesedit/>
         <Channelinterfaceedit/>
+        <channelproperiesedit/>
     </div>
 </template>
 

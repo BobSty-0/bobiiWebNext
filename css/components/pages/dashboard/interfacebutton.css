@@ -1,0 +1,40 @@
+.aktiv {
+    border: 3px solid white;
+    border-radius: 10px;
+    width: 87px;
+    height:60px;
+    margin-right: 10px;
+    margin-top:10px;
+    flex: 1
+}
+
+.inaktiv {
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    width: 87px;
+    height:60px;
+    margin-right: 10px;
+    margin-top:10px;
+    flex: 1;
+    filter: grayscale(100%);
+}
+
+.inaktiv img {
+    margin-top: 7px;
+    margin-left: 20px;
+}
+
+.aktiv img {
+    margin-top: 7px;
+    margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+    .inaktiv {
+        margin-right: 30px;
+    }
+
+    .aktiv {
+        margin-right: 30px;
+    }
+}

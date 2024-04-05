@@ -8,6 +8,8 @@
     border-radius: 25px;
     max-width: 120vh;
     margin: auto;
+    background-size: cover;
+    background-image: url("/resources/dashboard.png")
 }
 
 @media (max-width: 1150px) {

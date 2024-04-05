@@ -1,12 +1,61 @@
 .properties-edit {
     width:450px;
     max-width:450px;
-    min-height: 55vh;
+    min-width: 420px;
+    min-height: 640px;
     flex: 1;
+}
+
+.save-preview-buttons{
+    display: flex;
+    max-width: 100px;
+    float: right;
+    margin-right: 180px;
+    margin-top: 215px;
+}
+
+.save-preview-buttons .save-button{
+    max-width: 100px;
+}
+
+
+.save-preview-buttons button {
+    text-align:left;
+    display: block;
+    margin-left: auto;
+    margin-right: 20px;
+    background: #fff;
+    padding: 12px 30px;
+    border: none;
+    font-size: 1rem;
+    border-radius: 6px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.save-preview-buttons button:hover {
+    color: #fff;
+    background: #4aabbd;
+}
+
+@media (max-width: 905px) {
+    .properties-edit {
+        min-height: 50vh;
+    }
+    .save-preview-buttons{
+        margin-top: 10px;
+    }
 }
 
 @media (max-width: 768px) {
     .properties-edit {
         min-height: 45vh;
+        min-width: 80%;
+    }
+    .save-preview-buttons{
+        margin-right: 42%;
+        margin-bottom: 20px;
     }
 }

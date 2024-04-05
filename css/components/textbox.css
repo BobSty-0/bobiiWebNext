@@ -16,7 +16,7 @@
     font-size: 1rem;
     border: 2px solid white;
     border-radius: 10px;
-    background-color: transparent;
+    background-color: #7ec3c9;
     color: #fff;
     padding-left: 10px;
     outline: none;
@@ -29,7 +29,7 @@
     font-size: 1rem;
     border: 2px solid white;
     border-radius: 10px;
-    background-color: transparent;
+    background-color: #7ec3c9;
     color: #fff;
     padding: 10px;
     outline: none;
@@ -41,11 +41,13 @@
 
   @media (max-width: 768px) {
     .textbox {
-        min-width: 350px;
+        min-width: 90%;
+        max-width: 90%;
       }
 
     .text-area {
-        min-width: 350px;
+        min-width: 90%;
+        max-width: 90%;
     }
 }
 
