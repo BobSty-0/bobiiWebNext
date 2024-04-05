@@ -6,11 +6,12 @@
     <ueberschrift :ueberschrift="channelName" :untertitel="serverId"/>
     <div class="edit-elements">
         <channelproperiesedit/>
-        <channelproperiesedit/>
+        <Channelinterfaceedit/>
     </div>
 </template>
 
 <script>
+import Channelinterfaceedit from '/components/pages/dashboard/channelinterfaceedit.vue';
 import channelproperiesedit from '/components/pages/dashboard/channelproperiesedit.vue'
 
 export default {
@@ -20,7 +21,8 @@ export default {
         serverId: String
     },
     components: {
-        channelproperiesedit
+        channelproperiesedit,
+        Channelinterfaceedit
     }
 }
 </script>

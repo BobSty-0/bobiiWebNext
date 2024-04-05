@@ -2,11 +2,13 @@
     margin-top: 30px;
     margin-left: 30px;
 }
+
 .textbox-container h2{
     margin-top:10px;
     font-size: 1.2rem;
     color: white;
 }
+
 .textbox {
     margin-top: 5px;
     min-width: 375px;
@@ -20,6 +22,19 @@
     outline: none;
 }
 
+.text-area {
+    margin-top: 5px;
+    min-width: 375px;
+    min-height:130px;
+    font-size: 1rem;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: transparent;
+    color: #fff;
+    padding: 10px;
+    outline: none;
+}
+
 .textbox:focus {
     border: 3px solid white;
   }
@@ -28,6 +43,10 @@
     .textbox {
         min-width: 350px;
       }
+
+    .text-area {
+        min-width: 350px;
+    }
 }
 
   

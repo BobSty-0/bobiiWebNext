@@ -1,6 +1,6 @@
 <template>
     <navbar/>
-    <ueberschrift ueberschrift="Creator Channels"/>
+    <ueberschrift ueberschrift="Server Name TODO"/>
     <channels :serverId="serverId"/>
     <fusszeile/>
 </template>

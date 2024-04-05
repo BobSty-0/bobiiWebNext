@@ -6,7 +6,7 @@
 <template>
     <div class="textbox-container">
         <h2>{{ beschreibung }}</h2>
-        <input type="text" class="textbox" :id="name" :name="name" :placeholder="platzhalter" :maxlength="maxlengh" :required="required">
+        <textarea type="text" class="text-area" :id="name" :name="name" :placeholder="platzhalter" :maxlength="maxlengh" :required="required"></textarea>
     </div>
     
 </template>
