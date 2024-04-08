@@ -4,11 +4,11 @@
 </style>
 
 <template>
-  <header>
+  <header :class="navbarOrderClass">
     <nav class="navbar">
       <a class="logo" href="/">Bobii</a>
       <ul class="menu-links">
-        <span id="close-menu-btn" class="material-symbols-outlined" @click="closeMobileMenu">close</span>
+        <span id="close-menu-btn" class="material-symbols-outlined" @click="toggleClass">close</span>
         <li><NuxtLink to="/">Home</NuxtLink></li>
         <li><NuxtLink to="/dashboard">Dashboard</NuxtLink></li>
         <li><a href="#">Documentation</a></li>
@@ -16,7 +16,7 @@
         <li id="loginContainer"><a :href="discordAuth2Link">Login</a></li>
         <li id="avatarContainer"><img id="avatar" style="display: hidden"></li>
       </ul>
-      <span id="hamburger-btn" class="material-symbols-outlined" @click="toggleMobileMenu">menu</span>
+      <span id="hamburger-btn" class="material-symbols-outlined" @click="toggleClass">menu</span>
     </nav>
   </header>
 </template>
@@ -25,27 +25,16 @@
 import { discordAuth2Link } from '~/globals';
 
 export default {
-  methods: {
-    async loginWithDiscord() {
-      await this.$auth.loginWith('discord');
-    },
-    toggleMobileMenu() {
-      const header = this.$refs.header;
-      const hamburgerBtn = this.$refs.hamburgerBtn;
-      header.classList.toggle("show-mobile-menu");
-    },
-    closeMobileMenu() {
-      const header = this.$refs.header;
-      const hamburgerBtn = this.$refs.hamburgerBtn;
-      const closeMenuBtn = this.$refs.closeMenuBtn;
-      hamburgerBtn.click();
-    }
-  },
-
   data() {
     return {
+      navbarOrderClass: '',
       discordAuth2Link: discordAuth2Link
     };
+  },
+  methods: {
+    toggleClass: function() {
+        this.navbarOrderClass = (this.navbarOrderClass === '') ? 'show-mobile-menu' : '';
+    },
   }
 }
 </script>
