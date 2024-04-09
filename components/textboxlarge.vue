@@ -5,8 +5,8 @@
 
 <template>
     <div class="textbox-container">
-        <h2>{{ beschreibung }}</h2>
-        <textarea type="text" class="text-area" :id="name" :name="name" :placeholder="platzhalter" :maxlength="maxlengh" :required="required"></textarea>
+        <h2>{{ beschreibung }} <tooltip :tooltipText="tooltipText"/></h2>
+        <textarea type="text" class="text-area" :id="name" :name="name" :placeholder="platzhalter" :maxlength="maxlengh"></textarea>
     </div>
     
 </template>
@@ -19,7 +19,8 @@ export default {
     maxlengh: String,
     required: Boolean,
     beschreibung: String,
-    height: String
+    height: String,
+    tooltipText: String
   }
 };
 </script>

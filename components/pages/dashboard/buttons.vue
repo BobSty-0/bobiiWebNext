@@ -4,7 +4,7 @@
 
 <template>
     <div class="buttons">
-        <h2>Interface Buttons</h2>
+        <h2>Interface Buttons <tooltip tooltipText="Click on a button to edit it"/></h2>
         <div v-for="(button) in dummyButtons">
             <interfacebutton :buttonPicture="button.buttonPicture" :enabled="button.enabled" :name="button.name"/>
         </div>

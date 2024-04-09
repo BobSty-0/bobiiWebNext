@@ -5,21 +5,22 @@
 
 <template>
     <div class="textbox-container">
-        <h2>{{ beschreibung }}</h2>
-        <input type="text" class="textbox" :id="name" :name="name" :placeholder="platzhalter" :maxlength="maxlengh" :required="required">
+        <h2>{{ beschreibung }} <tooltip :tooltipText="tooltipText"/></h2>
+        <input type="text" class="textbox" :id="name" :value="value" :name="name" :placeholder="platzhalter" :maxlength="maxlengh">
     </div>
-    
+
 </template>
 
 <script>
 export default {
-  props: {
-    name: String,
-    platzhalter: String,
-    maxlengh: String,
-    required: Boolean,
-    beschreibung: String,
-    height: String
-  }
+    props: {
+        name: String,
+        platzhalter: String,
+        maxlengh: String,
+        beschreibung: String,
+        height: String,
+        tooltipText: String,
+        value: String
+    }
 };
 </script>

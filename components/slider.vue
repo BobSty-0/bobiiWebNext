@@ -5,7 +5,7 @@
 
 <template>
     <div class="slider-container">
-        <h2>{{ beschreibung }}</h2>
+        <h2>{{ beschreibung }} <tooltip :tooltipText="tooltipText"/></h2>
         <div class="slider-value-container">
             <h2>{{ sliderValue }}{{ einheitValue }}</h2>
             <input type="range" :min="min" :max="max" @input="updateValue" class="slider" :id="name" :name="name">
@@ -28,7 +28,8 @@ export default {
     value: String,
     name: String,
     beschreibung: String,
-    einheit: String
+    einheit: String,
+    tooltipText: String
   },
   methods: {
     updateValue(event) {

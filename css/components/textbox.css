@@ -3,16 +3,143 @@
     margin-left: 30px;
 }
 
-.textbox-container h2{
-    margin-top:10px;
+.textbox-container h2 {
+    margin-top: 10px;
     font-size: 1.2rem;
     color: white;
+    display: flex;
+}
+
+.temp-channel-name-buttons {
+    display: table;
+    margin-left: 30px;
+}
+
+.temp-channel-name-buttons button {
+    text-align: left;
+    display: inline-block;
+    margin: auto;
+    background: #fff;
+    padding: 8px 20px;
+    border: none;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    margin-top: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.temp-channel-name-buttons {
+    display: table;
+    margin-left: 30px;
+}
+
+.temp-channel-name-buttons button {
+    text-align: left;
+    display: inline-block;
+    margin: auto;
+    background: #fff;
+    padding: 8px 20px;
+    border: none;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    margin-top: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.temp-channel-name-buttons {
+    display: table;
+    margin-left: 30px;
+}
+
+.temp-channel-name-buttons button {
+    text-align: left;
+    display: inline-block;
+    margin: auto;
+    background: #fff;
+    padding: 8px 20px;
+    border: none;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    margin-top: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.temp-channel-name-buttons {
+    display: table;
+    margin-left: 30px;
+}
+
+.temp-channel-name-buttons button {
+    text-align: left;
+    display: inline-block;
+    margin: auto;
+    background: #fff;
+    padding: 8px 20px;
+    border: none;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    margin-top: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.temp-channel-name-buttons {
+    display: table;
+    margin-left: 30px;
+}
+
+.temp-channel-name-buttons button {
+    text-align: left;
+    display: inline-block;
+    margin: auto;
+    background: #fff;
+    padding: 8px 20px;
+    border: none;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    margin-top: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+
+.temp-channel-name-buttons {
+    display: table;
+    margin-left: 30px;
+}
+
+.temp-channel-name-buttons button {
+    text-align: left;
+    display: inline-block;
+    margin: auto;
+    background: #fff;
+    padding: 8px 20px;
+    border: none;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    margin-top: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.2s ease;
 }
 
 .textbox {
     margin-top: 5px;
     min-width: 375px;
-    min-height:40px;
+    min-height: 40px;
     font-size: 1rem;
     border: 2px solid white;
     border-radius: 10px;
@@ -25,7 +152,7 @@
 .text-area {
     margin-top: 5px;
     min-width: 375px;
-    min-height:130px;
+    min-height: 130px;
     font-size: 1rem;
     border: 2px solid white;
     border-radius: 10px;
@@ -37,18 +164,16 @@
 
 .textbox:focus {
     border: 3px solid white;
-  }
+}
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
     .textbox {
         min-width: 90%;
         max-width: 90%;
-      }
+    }
 
     .text-area {
         min-width: 90%;
         max-width: 90%;
     }
 }
-
-  
