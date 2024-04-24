@@ -4,8 +4,8 @@
 
 <template>
     <div class="interface-edit">
-        <textbox beschreibung="Interface Caption" name="tempchannelname" maxlengh="50" tooltipText="This will be the caption of the interface" />
-        <textboxlarge beschreibung="Interface Content" name="tempchannelname" maxlengh="400" tooltipText="This will be the content of the interface"/>
+        <textbox beschreibung="Interface Caption" name="interfacecaption" maxlengh="50" tooltipText="This will be the caption of the interface" />
+        <textboxlarge beschreibung="Interface Content" name="interfacecontent" maxlengh="400" tooltipText="This will be the content of the interface"/>
         <buttons/>
     </div>
 </template>
