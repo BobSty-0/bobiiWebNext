@@ -11,7 +11,7 @@
         <span id="close-menu-btn" class="material-symbols-outlined" @click="toggleClass">close</span>
         <li><NuxtLink to="/">Home</NuxtLink></li>
         <li><NuxtLink to="/dashboard">Dashboard</NuxtLink></li>
-        <li><a href="#">Documentation</a></li>
+        <li><a href="/documentation">Documentation</a></li>
         <li><NuxtLink to="/premium">Premium</NuxtLink></li>
         <li id="loginContainer"><a :href="discordAuth2Link">Login</a></li>
         <li id="avatarContainer"><img id="avatar" style="display: hidden"></li>

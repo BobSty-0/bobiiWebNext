@@ -9,6 +9,12 @@
       <div class="bobii">
         <b>Bobii</b>
       </div>
+      <ul class="socials">
+        <li><a href="https://www.instagram.com/bobii_bot/" target="_blank"><img src="/resources/Instagram.png"></a></li>
+        <li><a href="https://www.tiktok.com/@bobii_bot" target="_blank"><img src="/resources/TikTok.png"></a></li>
+        <li><a href="https://www.youtube.com/@bobii_bot" target="_blank"><img src="/resources/YouTube.png"></a></li>
+        <li><a href="https://twitter.com/bobii_bot" target="_blank"><img src="/resources/X.png"></a></li>
+      </ul>
       <ul class="buttons">
         <li><a href="#">Terms of Service</a></li>
         <li><a href="#">Privacy Policy</a></li>
