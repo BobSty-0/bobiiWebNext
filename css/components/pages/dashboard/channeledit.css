@@ -12,6 +12,30 @@
     background-image: url("/resources/dashboard.png")
 }
 
+.edit-elements-deaktiviert {
+    min-height: 55vh;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+    border: 2px solid white;
+    border-radius: 25px;
+    max-width: 120vh;
+    margin: auto;
+    background-size: cover;
+    background-image: url("/resources/dashboard.png");
+    filter: blur(4px);
+    pointer-events: none;
+}
+
+.interface-button-edit{
+    visibility: hidden;
+}
+
+.interface-button-edit-visible {
+    visibility: visible;
+}
+
 @media (max-width: 1150px) {
     .edit-elements {
         max-width: 95%;

@@ -6,7 +6,7 @@
 <template>
     <div class="textbox-container">
         <h2>{{ beschreibung }} <tooltip :tooltipText="tooltipText"/></h2>
-        <input type="text" class="textbox" :id="name" :value="value" :placeholder="platzhalter" :maxlength="maxlengh">
+        <input type="text" class="textbox" :id="name" :value="value" :placeholder="platzhalter" :maxlength="maxlengh" @change="valueChanged">
     </div>
 
 </template>
@@ -23,6 +23,15 @@ export default {
         tooltipText: String,
         value: String
     },
+
+    methods: {
+        valueChanged(event) {    
+            var newValue = event.srcElement.value
+            var textBoxName = this.name
+            eventBus.$emit('textboxValueChanged', {newValue, textBoxName})
+        }
+    },
+
     created() {
         eventBus.$on('insertKeywords', (keyword) => {
             if (this.name != 'tempchannelname'){
@@ -42,6 +51,7 @@ export default {
             textbox.focus()
         })
     },
+    
     destroyed() {
         eventBus.$off('insertKeywords')
   }

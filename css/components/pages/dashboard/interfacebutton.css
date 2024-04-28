@@ -5,7 +5,12 @@
     height:40px;
     margin-right: 10px;
     margin-top:10px;
-    flex: 1
+    flex: 1;
+    background-color: #7ec3c9;
+}
+
+.aktiv:hover {
+    cursor: pointer;
 }
 
 .inaktiv {
@@ -16,6 +21,10 @@
     margin-right: 10px;
     margin-top:10px;
     flex: 1;
+}
+
+.inaktiv:hover {
+    cursor: pointer;
 }
 
 .inaktiv img {
