@@ -1,6 +1,4 @@
 import { v4 as uuidv4 } from 'uuid';
-import { clientId, clientSecret } from "~/globals"
-
 
 const tokens = {}
 
@@ -15,33 +13,30 @@ export default defineEventHandler((event) => {
 })
 
 export const login = async (session_id, code) => {
-    const tokenResponseData = $fetch('https://discord.com/api/oauth2/token', {
+    const tokenResponseData = await $fetch('https://discord.com/api/oauth2/token', {
         method: 'POST',
         body: new URLSearchParams({
-            client_id: clientId,
-            client_secret: clientSecret,
+            client_id: "777971396931878912",
+            client_secret: "9r0_oTiTJUblNokjnlsfOdw8IPyvhMaQ",
             code: code,
             grant_type: 'authorization_code',
-            redirect_uri: 'http://localhost:8080/code/',
+            redirect_uri: 'http://localhost:3000/code/',
             scope: 'identify',
         }).toString(),
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
     })
-    const oAuthData = await tokenResponseData.body.json()
-    console.log(oAuthData)
-    tokens[session_id] = { token: oAuthData.access_token, token_type: oauthData.token_type}
+    tokens[session_id] = { token: tokenResponseData.access_token, token_type: tokenResponseData.token_type}
 }
 
 export const request = async (session_id, path) => {
-    if(!tokens[session_id]) {
+    const tokenData = tokens[session_id]
+    if(tokenData === undefined) {
         throw new Error("not logged in")
     }
-    const token = tokens[session_id]
-    const res = await request("https://discord.com/api/users/" + path, {headers: {
-        authorization: `${token.token_type} ${token.token}`
+    
+    return await $fetch("https://discord.com/api/users/" + path, {headers: {
+        authorization: `${tokenData.token_type} ${tokenData.token}`
     }})
-    const data = await identifyResponse.body.json()
-    return data
 }
