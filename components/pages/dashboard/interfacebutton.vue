@@ -4,7 +4,7 @@
 
 <template>
     <div :class="className" @click="openButtonEditor(this.cmdButtonPicture, this.cmdName, this.className, this.cmdColor, this.cmdOriginalName)">
-        <img :src="cmdButtonPicture" width="40px";/>
+        <img :src="cmdButtonPicture" width="40px"/>
     </div>
 </template>
 
