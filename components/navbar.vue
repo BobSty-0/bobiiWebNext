@@ -14,7 +14,7 @@
         <li><a href="/documentation">Documentation</a></li>
         <li><NuxtLink to="/premium">Premium</NuxtLink></li>
         <li id="loginContainer"><a :href="discordAuth2Link">Login</a></li>
-        <li id="avatarContainer"><img id="avatar" style="display: hidden"></li>
+        <li id="avatarContainer" class="avatarContainer"><img id="avatar" style="display: hidden" @click=""></li>
       </ul>
       <span id="hamburger-btn" class="material-symbols-outlined" @click="toggleClass">menu</span>
     </nav>
@@ -23,7 +23,7 @@
 
 <script>
 import { discordAuth2Link } from '~/globals';
-
+import {checkUserLoggedIn} from '/discord'
 export default {
   data() {
     return {
@@ -31,10 +31,36 @@ export default {
       discordAuth2Link: discordAuth2Link
     };
   },
+  mounted() {
+    this.checkUserLoggedIn();
+  },
   methods: {
-    toggleClass: function() {
+    toggleClass() {
         this.navbarOrderClass = (this.navbarOrderClass === '') ? 'show-mobile-menu' : '';
     },
+
+    showLogOut() {
+
+    },
+    
+    async checkUserLoggedIn() {
+      try {
+          if (checkUserLoggedIn) {
+            const response = await fetch('/api/identify')
+            response.json().then(r => {
+              document.getElementById("avatar").src = `https://cdn.discordapp.com/avatars/${r.id}/${r.avatar}.png`
+              document.getElementById("avatarContainer").style.display = 'default'
+              document.getElementById("loginContainer").style.display = 'none'
+            })
+          } else {
+            document.getElementById("avatar").src = ''
+            document.getElementById("avatarContainer").style.display = 'none'
+            document.getElementById("loginContainer").style.display = 'default'
+          }
+      } catch (error) {
+          console.error('Fehler beim Überprüfen der Benutzeranmeldung:', error);
+      }
+    }
   }
 }
 </script>
