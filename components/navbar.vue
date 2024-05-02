@@ -23,7 +23,6 @@
 
 <script>
 import { discordAuth2Link } from '~/globals';
-import {checkUserLoggedIn} from '/discord'
 export default {
   data() {
     return {
@@ -45,14 +44,16 @@ export default {
     
     async checkUserLoggedIn() {
       try {
-          if (checkUserLoggedIn) {
-            const response = await fetch('/api/identify')
+        const response = await fetch('/api/identify')
+          if (response.status === 200) {
+            console.log('ja')
             response.json().then(r => {
               document.getElementById("avatar").src = `https://cdn.discordapp.com/avatars/${r.id}/${r.avatar}.png`
               document.getElementById("avatarContainer").style.display = 'default'
               document.getElementById("loginContainer").style.display = 'none'
             })
           } else {
+            console.log('nein')
             document.getElementById("avatar").src = ''
             document.getElementById("avatarContainer").style.display = 'none'
             document.getElementById("loginContainer").style.display = 'default'
