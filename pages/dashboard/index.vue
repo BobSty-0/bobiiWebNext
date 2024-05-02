@@ -16,8 +16,9 @@ export default {
       caption: 'Select Server'
     };
   },
+
   components: {
     servers,
-  }
+  },
 };
 </script>

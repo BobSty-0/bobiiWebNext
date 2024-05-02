@@ -7,8 +7,10 @@
         <div class="server-bild">
             <img :src="imgUrl"/>
         </div>
-        <h2>{{ serverName }}</h2>
-        <p>{{ owner }}</p>
+        <div class="server-infos">
+          <h2>{{ serverName }}</h2>
+          <p>{{ ownerString }}</p>
+        </div>
         <NuxtLink :to="link" ><button>{{ buttonText }}</button></NuxtLink>
     </div>
 </template>
@@ -17,15 +19,33 @@
 export default {
   data() {
     return {
-      link: "/dashboard/" + this.serverId
+      link: "/dashboard/" + this.serverId,
+      ownerString: '',
+      iconLink: ''
     }
   },
+
   props: {
     serverName: String,
     serverId: String,
     imgUrl: String,
-    owner: String,
+    owner: Boolean,
     buttonText: String
+  },
+
+  mounted() {
+    this.getOwnerString()
+  },
+
+  methods: {
+    getOwnerString() {
+      if(this.owner) {
+        this.ownerString = 'Owner'
+      }
+      else{
+        this.ownerString = 'Moderator'
+      }
+    },
   }
 };
 </script>

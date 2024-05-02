@@ -6,20 +6,25 @@
     flex-wrap: wrap; 
 }
 
+.server-infos {
+    height: 65px;
+}
+
 .auswahl-element {
     flex: 1;
     display: block;
     width: 250px;
     max-width: 250px;
     min-width: 250px;
-    height: 260px;
-    max-height: 260px;
-    min-height:260px;
+    height: 280px;
+    max-height: 280px;
+    min-height:280px;
     border-radius: 15px;
     border: 2px solid white;
     text-align: center;
     margin: 10px 10px 10px 10px;
     background-image: url("/resources/server_auswahl.png");
+    background-size: cover;
 }
 
 .auswahl-element button{
@@ -68,5 +73,5 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background-color: white;
+    background-color: transparent;
 }

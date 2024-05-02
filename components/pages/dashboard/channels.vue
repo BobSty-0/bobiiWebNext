@@ -18,6 +18,7 @@ import createchannel from '/components/pages/dashboard/createchannel.vue'
 export default {
     data(){
         return{
+            channels: [],
             dummyChannels: [
                 { channelName: "Channel1", channelId: '2312341351234' },
                 { channelName: "Channel2", channelId: '3412341223531' },
@@ -28,12 +29,32 @@ export default {
             ]
         }
     },
+
     props: {
         serverId: String,
     },
+
     components: {
         channel,
         createchannel
+    },
+
+    mounted() {
+
+    },
+
+    methods: {
+        async getChannels() {
+            const response = await fetch('/api/guilds')
+            if (response.status != 200){
+                window.open(discordAuth2Link, "_self");
+                this.channels = []
+            }
+            else{
+                
+            }
+
+        }
     }
 };
 </script>
