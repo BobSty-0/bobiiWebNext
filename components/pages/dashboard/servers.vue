@@ -6,7 +6,7 @@
     <section class="confirmation-section">
         <div class="server-auswahl" id="server-auswahl">
             <div v-for="(server) in servers">
-                <server v-if="server.owner || (server.permissions & 0x20)" :serverName="server.name" :imgUrl="`https://cdn.discordapp.com/icons/${server.id}/${server.icon}.png`" :owner="server.owner"
+                <server :serverName="server.name" :imgUrl="`https://cdn.discordapp.com/icons/${server.id}/${server.icon}.png`" :owner="(server.permissions & 0x8) > 0"
                     buttonText="Setup"  :serverId="server.id"/>
             </div>
         </div>
