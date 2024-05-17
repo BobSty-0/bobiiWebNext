@@ -13,7 +13,7 @@
         <li><NuxtLink to="/dashboard">Dashboard</NuxtLink></li>
         <li><a href="/documentation">Documentation</a></li>
         <li><NuxtLink to="/premium">Premium</NuxtLink></li>
-        <li id="loginContainer"><a :href="useRuntimeConfig().discordAuth2Link">Login</a></li>
+        <li id="loginContainer"><a :href="useRuntimeConfig().public.discordAuth2Link">Login</a></li>
         <li id="avatarContainer" class="avatarContainer"><img id="avatar" style="display: hidden" @click=""></li>
       </ul>
       <span id="hamburger-btn" class="material-symbols-outlined" @click="toggleClass">menu</span>
@@ -26,7 +26,6 @@ export default {
   data() {
     return {
       navbarOrderClass: '',
-      discordAuth2Link: useRuntimeConfig().discordAuth2Link
     };
   },
   mounted() {
