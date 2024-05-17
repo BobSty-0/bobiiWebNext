@@ -1,8 +1,8 @@
-import { request } from "../middleware/session"
+import { requestUser } from "../middleware/session"
 
 export default eventHandler(async (event) => {
     try {
-        const response = await request(event.context.session_id, "@me/email")
+        const response = await requestUser(event.context.session_id, "users/@me/email")
         return response
     } catch {
         throw createError({

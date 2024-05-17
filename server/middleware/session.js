@@ -30,18 +30,19 @@ export const login = async (session_id, code) => {
     tokens[session_id] = { token: tokenResponseData.access_token, token_type: tokenResponseData.token_type}
 }
 
-export const request = async (session_id, path) => {
+export const requestUser = async (session_id, path) => {
     const tokenData = tokens[session_id]
     if(tokenData === undefined) {
         throw new Error("not logged in")
     }
     
-    return await $fetch("https://discord.com/api/users/" + path, {headers: {
+    return await $fetch("https://discord.com/api/" + path, {headers: {
         authorization: `${tokenData.token_type} ${tokenData.token}`
     }})
 }
 
-export const requestBotAPI = async (guildid) => {
-    return await $fetch("https://discord.com/api/guilds/" + guildid, {headers: {
-        authorization: `Bot (token)`}})
+export const requestBot = async (path) => {
+    return await $fetch("https://discord.com/api/" + path, {headers: {
+        authorization: 'Bot placeHolder'
+    }})
 }
