@@ -43,6 +43,6 @@ export const requestUser = async (session_id, path) => {
 
 export const requestBot = async (path) => {
     return await $fetch("https://discord.com/api/" + path, {headers: {
-        authorization: 'Bot placeHolder'
+        authorization: `Bot ${useRuntimeConfig().botToken}`
     }})
 }

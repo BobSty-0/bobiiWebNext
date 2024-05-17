@@ -15,7 +15,6 @@
 
 <script>
 import server from '/components/pages/dashboard/server.vue'
-import { discordAuth2Link } from '~/globals';
 
 export default {
     components: {
@@ -36,7 +35,7 @@ export default {
         async getServers() {
             const response = await fetch('/api/guilds')
             if (response.status != 200){
-                window.open(discordAuth2Link, "_self");
+                window.open(useRuntimeConfig().discordAuth2Link, "_self");
                 this.servers= []
             }
             else{
