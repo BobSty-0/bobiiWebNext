@@ -16,8 +16,8 @@ export const login = async (session_id, code) => {
     const tokenResponseData = await $fetch('https://discord.com/api/oauth2/token', {
         method: 'POST',
         body: new URLSearchParams({
-            client_id: "777971396931878912",
-            client_secret: "9r0_oTiTJUblNokjnlsfOdw8IPyvhMaQ",
+            client_id: '869180143363584060',
+            client_secret: 'c2Ui9aKZw_u-8gmC7JYjuJA0qAIDVNX6',
             code: code,
             grant_type: 'authorization_code',
             redirect_uri: 'http://localhost:3000/code/',
@@ -39,4 +39,9 @@ export const request = async (session_id, path) => {
     return await $fetch("https://discord.com/api/users/" + path, {headers: {
         authorization: `${tokenData.token_type} ${tokenData.token}`
     }})
+}
+
+export const requestBotAPI = async (guildid) => {
+    return await $fetch("https://discord.com/api/guilds/" + guildid, {headers: {
+        authorization: `Bot (token)`}})
 }

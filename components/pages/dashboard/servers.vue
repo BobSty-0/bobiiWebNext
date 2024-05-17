@@ -42,8 +42,6 @@ export default {
             else{
                 response.json()
                 .then(data => {
-                    // Hier wird die JSON-Antwort in das Vue-Datenobjekt gesetzt
-                    console.log(data)
                     this.servers = data;
                 })
             }
