@@ -35,7 +35,7 @@ export default {
         async getServers() {
             const response = await fetch('/api/guilds')
             if (response.status != 200){
-                window.open(useRuntimeConfig().discordAuth2Link, "_self");
+                window.open(useRuntimeConfig().public.discordAuth2Link, "_self");
                 this.servers= []
             }
             else{
