@@ -4,7 +4,7 @@ import { requestBot, requestUser } from "../../middleware/session"
 export default eventHandler(async (event) => {
     try {
         const guildId = event.context.params?.id
-        const userGuilds = await requestUser(event.context.session_id, "users/@me/guilds")
+        const userGuilds = await requestUser(event.context.session_data, "users/@me/guilds")
         for(var e in userGuilds) {
             const guild = userGuilds[e]
             if(guild.id === guildId && (guild.owner || (guild.permissions & 0x28))) {

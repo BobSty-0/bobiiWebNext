@@ -2,7 +2,7 @@ import { requestUser } from "../middleware/session"
 
 export default eventHandler(async (event) => {
     try {
-        const guilds = await requestUser(event.context.session_id, "users/@me/guilds")
+        const guilds = await requestUser(event.context.session_data, "users/@me/guilds")
         const response = []
         for(var e in guilds) {
             const guild = guilds[e]

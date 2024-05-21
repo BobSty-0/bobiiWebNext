@@ -1,15 +1,29 @@
 import { v4 as uuidv4 } from 'uuid';
+import { usePG } from '~/composables/usePG';
 
-const tokens = {}
+const { query } = usePG
+
+init()
+
+function init() {
+    const table_exists = query('select exists(select * from INFORMATION_SCHEMA.TABLES where TABLE_NAME = "session")').rows[0].exists
+    if(!table_exists) {
+        query('create table Sessions (session_id uuid primary key, session_data json, expires timestamp)')
+    }
+}
 
 export default defineEventHandler((event) => {
     const session_id = getCookie(event, 'session-id')
     if(!session_id) {
         // encrypt
         const id = uuidv4()
-        setCookie(event, 'session-id', id)
+        setCookie(event, 'session-id', id, {
+            maxAge: useRuntimeConfig().maxAge
+        })
+        query("insert into Sessions values($1, '{}'::json, NOW() + '30d')", [id])
     }
     event.context.session_id = session_id
+    event.context.session_data = query('select session_data from Sessions where session_id=$1', [session_id])
 })
 
 export const login = async (session_id, code) => {
@@ -27,17 +41,17 @@ export const login = async (session_id, code) => {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
     })
-    tokens[session_id] = { token: tokenResponseData.access_token, token_type: tokenResponseData.token_type}
+    const newSessionData = { token: tokenResponseData.access_token, token_type: tokenResponseData.token_type}
+    query('update Sessions set session_data=$1 where session_id=$2', [newSessionData, session_id])
 }
 
-export const requestUser = async (session_id, path) => {
-    const tokenData = tokens[session_id]
-    if(tokenData === undefined) {
+export const requestUser = async (session_data, path) => {
+    if(!session_data.token) {
         throw new Error("not logged in")
     }
     
     return await $fetch("https://discord.com/api/" + path, {headers: {
-        authorization: `${tokenData.token_type} ${tokenData.token}`
+        authorization: `${session_data.token_type} ${session_data.token}`
     }})
 }
 

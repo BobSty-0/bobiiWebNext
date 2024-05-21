@@ -2,7 +2,7 @@ import { requestUser } from "../middleware/session"
 
 export default eventHandler(async (event) => {
     try {
-        const response = await requestUser(event.context.session_id, "users/@me/email")
+        const response = await requestUser(event.context.session_data, "users/@me/email")
         return response
     } catch {
         throw createError({
