@@ -1,29 +1,54 @@
 import { v4 as uuidv4 } from 'uuid';
-import { usePG } from '~/composables/usePG';
+import pg from 'pg'
+const { Pool } = pg
 
-const { query } = usePG
+const testPool = new Pool(useRuntimeConfig().dbConfig);
 
 init()
 
-function init() {
-    const table_exists = query('select exists(select * from INFORMATION_SCHEMA.TABLES where TABLE_NAME = "session")').rows[0].exists
-    if(!table_exists) {
-        query('create table Sessions (session_id uuid primary key, session_data json, expires timestamp)')
+async function init() {
+    const test = await testPool.query(`SELECT EXISTS(
+        SELECT 1 FROM pg_catalog.pg_tables 
+        WHERE schemaname = \'public\' 
+        AND tablename = \'sessions\'
+    )`)
+        
+    if(!test.rows[0].exists) {
+        testPool.query(`CREATE TABLE sessions (
+            session_id uuid PRIMARY KEY, 
+            session_data JSON, 
+            expires TIMESTAMP
+        )`)
+
+        console.log('Tabelle sollte erstellt sein')
+    }
+    else{
+        console.log('Tabelle existiert')
     }
 }
 
 export default defineEventHandler((event) => {
     const session_id = getCookie(event, 'session-id')
+    console.log(session_id)
     if(!session_id) {
         // encrypt
         const id = uuidv4()
         setCookie(event, 'session-id', id, {
             maxAge: useRuntimeConfig().maxAge
         })
-        query("insert into Sessions values($1, '{}'::json, NOW() + '30d')", [id])
+        console.log(id)
+        testPool.query(`INSERT INTO sessions VALUES(
+            $1, 
+            '{}'::json, 
+            NOW() + '30d'
+        )`, 
+        [id])
     }
     event.context.session_id = session_id
-    event.context.session_data = query('select session_data from Sessions where session_id=$1', [session_id])
+    console.log('defineHändler')
+    event.context.session_data = testPool.query(
+        `SELECT session_data FROM sessions WHERE session_id=$1`,
+        [session_id])
 })
 
 export const login = async (session_id, code) => {
@@ -41,8 +66,11 @@ export const login = async (session_id, code) => {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
     })
+    console.log('Hier war ich')
     const newSessionData = { token: tokenResponseData.access_token, token_type: tokenResponseData.token_type}
-    query('update Sessions set session_data=$1 where session_id=$2', [newSessionData, session_id])
+    console.log(newSessionData)
+    testPool.query('UPDATE sessions SET session_data=$1 WHERE session_id=$2', [newSessionData, session_id])
+    console.log('Hier war ich auch')
 }
 
 export const requestUser = async (session_data, path) => {

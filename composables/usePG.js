@@ -1,17 +1,18 @@
-import { Pool } from 'pg';
+import pg from 'pg';
+const { Pool }= pg
 
-const pool = new Pool(useRuntimeConfig().dbConfig);
+const testPool = new Pool(useRuntimeConfig().dbConfig);
 
 export const usePG = () => {
     const getClient = async () => {
-        return await pool.connect()
+        return await testPool.connect()
     }
 
     const query = async (text, values) => {
         if(values) {
-            return await pool.query(text, values)
+            return await testPool.query(text, values)
         } else {
-            return await pool.query(text)
+            return await testPool.query(text)
         }
     }
 
