@@ -20,23 +20,21 @@ async function init() {
             expires TIMESTAMP
         )`)
 
-        console.log('Tabelle sollte erstellt sein')
+        console.log('Tabelle wurde erstellt')
     }
     else{
-        console.log('Tabelle existiert')
+        console.log('Tabelle existiert bereits')
     }
 }
 
-export default defineEventHandler((event) => {
+export default defineEventHandler(async (event) => {
     const session_id = getCookie(event, 'session-id')
-    console.log(session_id)
     if(!session_id) {
         // encrypt
         const id = uuidv4()
         setCookie(event, 'session-id', id, {
             maxAge: useRuntimeConfig().maxAge
         })
-        console.log(id)
         testPool.query(`INSERT INTO sessions VALUES(
             $1, 
             '{}'::json, 
@@ -45,10 +43,8 @@ export default defineEventHandler((event) => {
         [id])
     }
     event.context.session_id = session_id
-    console.log('defineHändler')
-    event.context.session_data = testPool.query(
-        `SELECT session_data FROM sessions WHERE session_id=$1`,
-        [session_id])
+    const queryResponse = await testPool.query(`SELECT session_data FROM sessions WHERE session_id=$1`, [session_id])
+    event.context.session_data = queryResponse.rows[0].session_data
 })
 
 export const login = async (session_id, code) => {
@@ -66,11 +62,8 @@ export const login = async (session_id, code) => {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
     })
-    console.log('Hier war ich')
     const newSessionData = { token: tokenResponseData.access_token, token_type: tokenResponseData.token_type}
-    console.log(newSessionData)
     testPool.query('UPDATE sessions SET session_data=$1 WHERE session_id=$2', [newSessionData, session_id])
-    console.log('Hier war ich auch')
 }
 
 export const requestUser = async (session_data, path) => {

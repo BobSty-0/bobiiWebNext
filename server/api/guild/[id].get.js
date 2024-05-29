@@ -13,7 +13,6 @@ export default eventHandler(async (event) => {
         }
 
     } catch (error)  {
-        console.log(error);
         throw createError({
             statusCode: 401,
             statusMessage: 'could not fetch data'
